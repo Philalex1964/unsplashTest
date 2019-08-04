@@ -34,7 +34,7 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
         searchController.searchBar.setShowsCancelButton(true, animated: true)
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCell.reuseId)
+       // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCell.reuseId)
 
     }
 
@@ -62,8 +62,8 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath)
-        //guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as! PhotoCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
         //cell.photoImage.image = photoImage
 
     
