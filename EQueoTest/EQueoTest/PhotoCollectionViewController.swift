@@ -18,24 +18,34 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     
     //var searchController: UISearchController?
     var searchController = UISearchController(searchResultsController: nil)
+//    let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//    public let context = appDelegate.persistentContainer.viewContext
     
     public var photoImage: UIImage?
     
+    lazy var fetchResultsController: NSFetchedResultsController<PhotoMO>? = {
+        let fetchRequest: NSFetchRequest<PhotoMO> = PhotoMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "author", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        guard let appDelegate : AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return nil}
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchResultsController = NSFetchedResultsController(fetchRequest:fetchRequest,
+                                                                managedObjectContext: context,
+                                                                sectionNameKeyPath: nil,
+                                                                cacheName: nil)
+        fetchResultsController.delegate = self
+        return fetchResultsController
+    }()
+    
+    public var photos: [PhotoMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setup the Search Controller
-//        searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
+        self.fetchData()
+        //PhotoService.shared.allPhotosIn(context: context)
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
-//        definesPresentationContext = true
         searchController.searchBar.setShowsCancelButton(true, animated: true)
-
-        // Register cell classes
-       // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoCell.reuseId)
-
     }
 
     /*
@@ -62,11 +72,10 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as! PhotoCell
+        let photo: PhotoMO = photos[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
-        //cell.photoImage.image = photoImage
-
-    
+        cell.photoImage.kf.setImage(with: URL(string: photo.photoURL ?? ""))
+        cell.authorLabel.text = photo.author
         // Configure the cell
     
         return cell
@@ -102,6 +111,14 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     
     }
     */
+    
+    private func fetchData() {
+        do {
+            try self.fetchResultsController?.performFetch()
+        } catch {
+            print(error)
+        }
+    }
 
 }
 

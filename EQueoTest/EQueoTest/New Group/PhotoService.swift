@@ -24,7 +24,7 @@ class PhotoService {
             "client_id": "df323d9b6f1542e39224aed966bd4baf6c24ec14248f09b403a7dea55dfac24d",
             "query": "flower",
             "page": 1,
-            "per_page": 5,
+            "per_page": 10,
             "auto": "format",
         ]
         
