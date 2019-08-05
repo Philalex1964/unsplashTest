@@ -33,8 +33,6 @@ class ApiService {
                 let json = JSON(value)
                 let photos = json.arrayValue.map { Photo($0) }
                 completion?(.success(photos))
-                print(json)
-                print(photos)
                 
             case .failure(let error):
                 completion?(.failure(error))

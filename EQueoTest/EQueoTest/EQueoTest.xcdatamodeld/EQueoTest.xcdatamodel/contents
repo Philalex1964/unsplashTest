@@ -4,7 +4,7 @@
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoURL" attributeType="String" syncable="YES"/>
         <attribute name="selectedPhoto" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>

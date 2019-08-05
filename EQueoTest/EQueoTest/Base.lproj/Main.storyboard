@@ -13,7 +13,7 @@
         <scene sceneID="NFA-1Q-9Wx">
             <objects>
                 <collectionViewController id="R3z-F8-pHP" customClass="PhotoCollectionViewController" customModule="EQueoTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="FFg-tZ-Mff">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" dataMode="prototypes" id="FFg-tZ-Mff">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,45 +26,45 @@
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="22C-Az-WwY" userLabel="PhotoCell" customClass="PhotoCell" customModule="EQueoTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-sg-IbY">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-sg-IbY">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DA-Fo-wka" userLabel="authorLabel">
-                                            <rect key="frame" x="5" y="154.5" width="115" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DA-Fo-wka" userLabel="authorLabel">
+                                            <rect key="frame" x="5" y="175" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-Ou-LNw" userLabel="selectControl">
-                                            <rect key="frame" x="125" y="125" width="50" height="50"/>
-                                            <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="145" y="145" width="30" height="30"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="9GT-PW-4du"/>
-                                                <constraint firstAttribute="width" secondItem="BdG-Ou-LNw" secondAttribute="height" multiplier="1:1" id="xGO-ru-wCs"/>
+                                                <constraint firstAttribute="height" constant="30" id="Aa1-nu-YrF"/>
+                                                <constraint firstAttribute="width" constant="30" id="f8u-wo-Faf"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <integer key="value" value="25"/>
+                                                    <integer key="value" value="15"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="BdG-Ou-LNw" firstAttribute="leading" secondItem="5DA-Fo-wka" secondAttribute="trailing" constant="5" id="4UY-0d-o7A"/>
                                     <constraint firstItem="5DA-Fo-wka" firstAttribute="leading" secondItem="22C-Az-WwY" secondAttribute="leading" constant="5" id="9TY-ye-9va"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5DA-Fo-wka" secondAttribute="trailing" symbolic="YES" id="CPM-Fe-6py"/>
                                     <constraint firstItem="gC1-sg-IbY" firstAttribute="top" secondItem="22C-Az-WwY" secondAttribute="top" id="LdS-1U-U5p"/>
                                     <constraint firstAttribute="bottom" secondItem="5DA-Fo-wka" secondAttribute="bottom" constant="5" id="PSa-MI-Tyk"/>
+                                    <constraint firstAttribute="bottom" secondItem="BdG-Ou-LNw" secondAttribute="bottom" constant="5" id="Q9S-NX-aLC"/>
                                     <constraint firstAttribute="trailing" secondItem="gC1-sg-IbY" secondAttribute="trailing" id="auc-KL-WRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="BdG-Ou-LNw" secondAttribute="trailing" constant="5" id="fus-2n-A4j"/>
                                     <constraint firstAttribute="bottom" secondItem="gC1-sg-IbY" secondAttribute="bottom" id="k4N-yP-k04"/>
                                     <constraint firstItem="gC1-sg-IbY" firstAttribute="leading" secondItem="22C-Az-WwY" secondAttribute="leading" id="kJK-MZ-Ppy"/>
-                                    <constraint firstAttribute="bottom" secondItem="BdG-Ou-LNw" secondAttribute="bottom" constant="5" id="npU-uM-mdh"/>
-                                    <constraint firstAttribute="trailing" secondItem="BdG-Ou-LNw" secondAttribute="trailing" constant="5" id="r7G-aP-kiU"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="authorLabel" destination="5DA-Fo-wka" id="A67-Z4-QeM"/>

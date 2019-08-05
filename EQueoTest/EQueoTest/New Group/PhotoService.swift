@@ -22,18 +22,21 @@ class PhotoService {
         
         let params: Parameters = [
             "client_id": "df323d9b6f1542e39224aed966bd4baf6c24ec14248f09b403a7dea55dfac24d",
-            "query": "flower",
+            "query": "car",
             "page": 1,
-            "per_page": 10,
-            "auto": "format",
+            "per_page": 30,
+//            "fit": "clip",
+//            "w": 180,
+//            "h": 180,
+            "auto": "format"
         ]
         
         Alamofire.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let photos = json.arrayValue.map { Photo($0) }
-                print(json)
+                let photos = json["results"].arrayValue.map { Photo($0) }
+
                 let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
                 let context = appDelegate!.persistentContainer.viewContext
                 
@@ -44,11 +47,9 @@ class PhotoService {
                             oldIdentifiers.add("\(oldPhoto.photoDescription ?? "")\(oldPhoto.author ?? "")")
                         }
                     }
-                    print(json)
                 }
                 
                 self.deletePhotosIn(context: context)
-                
                 let entity = NSEntityDescription.entity(forEntityName: "Photo", in: context)!
                 for plainPhoto: Photo in photos {
                     let managedPhoto = PhotoMO(entity: entity,

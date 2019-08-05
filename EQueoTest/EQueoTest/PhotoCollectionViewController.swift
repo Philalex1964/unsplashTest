@@ -15,11 +15,9 @@ import Kingfisher
 class PhotoCollectionViewController: UICollectionViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate  {
     
     @IBOutlet var photoCView: UICollectionView!
-    
-    //var searchController: UISearchController?
+
     var searchController = UISearchController(searchResultsController: nil)
-//    let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//    public let context = appDelegate.persistentContainer.viewContext
+
     
     public var photoImage: UIImage?
     
@@ -41,23 +39,25 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchData()
-        //PhotoService.shared.allPhotosIn(context: context)
+        
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         searchController.searchBar.setShowsCancelButton(true, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchData()
     }
-    */
-
+ 
+    // MARK: - NSFetchedResultsControllerDelegate
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let fetchedObjects = self.fetchResultsController?.fetchedObjects {
+            photos = fetchedObjects
+        }
+        photoCView.reloadData()
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -67,28 +67,21 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 10
+
+            return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photo: PhotoMO = photos[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
         cell.photoImage.kf.setImage(with: URL(string: photo.photoURL ?? ""))
-        cell.authorLabel.text = photo.author
-        // Configure the cell
+        cell.authorLabel.text = "abuyz"//photo.author
+     
     
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
 
     /*
     // Uncomment this method to specify if the specified item should be selected
@@ -97,11 +90,6 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     }
     */
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
 
     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return false
@@ -110,7 +98,7 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
     }
-    */
+
     
     private func fetchData() {
         do {
