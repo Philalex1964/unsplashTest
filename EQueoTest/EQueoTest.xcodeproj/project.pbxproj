@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FF702943FBA185EC9BA5BE2 /* Pods_EQueoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7418A57A0EC9D7EFCF8C70A4 /* Pods_EQueoTest.framework */; };
+		2C20795B22FB222E004854AB /* PhotoCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */; };
 		2C3BC45B22F4ABA400464512 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */; };
 		2CA0C30F22F5D49B003735A7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C30E22F5D49B003735A7 /* Photo.swift */; };
 		2CA0C31322F5D80A003735A7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C31222F5D80A003735A7 /* PhotoCell.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		060DD2C566C9CAA614224255 /* Pods-EQueoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EQueoTest.release.xcconfig"; path = "Target Support Files/Pods-EQueoTest/Pods-EQueoTest.release.xcconfig"; sourceTree = "<group>"; };
+		2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewLayout.swift; sourceTree = "<group>"; };
 		2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		2CA0C30E22F5D49B003735A7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2CA0C31222F5D80A003735A7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				2CC18F6C22F33D3C00DB7AFC /* AppDelegate.swift */,
 				2CA0C30E22F5D49B003735A7 /* Photo.swift */,
 				2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */,
+				2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */,
 				2CC18F7022F33D3C00DB7AFC /* Main.storyboard */,
 				2CA0C31422F6F855003735A7 /* PhotoService.swift */,
 				2CA0C31622F70ADF003735A7 /* ApiService.swift */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CA0C30F22F5D49B003735A7 /* Photo.swift in Sources */,
+				2C20795B22FB222E004854AB /* PhotoCollectionViewLayout.swift in Sources */,
 				2CA0C31322F5D80A003735A7 /* PhotoCell.swift in Sources */,
 				2CA0C31522F6F855003735A7 /* PhotoService.swift in Sources */,
 				2CC18F7522F33D3C00DB7AFC /* EQueoTest.xcdatamodeld in Sources */,
