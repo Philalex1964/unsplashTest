@@ -12,13 +12,11 @@ import Kingfisher
 
 
 
-class PhotoCollectionViewController: UICollectionViewController, UISearchBarDelegate, NSFetchedResultsControllerDelegate  {
+class PhotoCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate,  UISearchBarDelegate  {
     
     @IBOutlet var photoCView: UICollectionView!
 
-    var searchController = UISearchController(searchResultsController: nil)
-
-    
+    public var photos: [PhotoMO] = []
     public var photoImage: UIImage?
     
     lazy var fetchResultsController: NSFetchedResultsController<PhotoMO>? = {
@@ -35,19 +33,32 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
         return fetchResultsController
     }()
     
-    public var photos: [PhotoMO] = []
+    
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    public var searchText: String = ""
+    
+    public func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String){
+        searchBar.delegate = self
+            }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController.searchBar.placeholder = "Search"
+        
         navigationItem.searchController = searchController
         searchController.searchBar.setShowsCancelButton(true, animated: true)
+        searchController.searchBar.text = searchText
+        searchController.searchBar.placeholder = "Search"
+        //searchController.definesPresentationContext = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetchData()
+        searchController.searchBar.text = searchText
+        updateSearchResults(for: searchController)
     }
  
     // MARK: - NSFetchedResultsControllerDelegate
@@ -75,7 +86,7 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
         let photo: PhotoMO = photos[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
         cell.photoImage.kf.setImage(with: URL(string: photo.photoURL ?? ""))
-        cell.authorLabel.text = "abuyz"//photo.author
+        cell.authorLabel.text = photo.author
      
     
         return cell
@@ -113,6 +124,17 @@ class PhotoCollectionViewController: UICollectionViewController, UISearchBarDele
 extension PhotoCollectionViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        func searchBar(_ searchBar: UISearchBar,
+                       textDidChange searchText: String){
+            
+        }
     }
 }
+
+//extension PhotoCollectionViewController: UISearchBarDelegate {
+//    // MARK: - UISearchResultsUpdating Delegate
+//    func searchBar(_ searchBar: UISearchBar,
+//                   textDidChange searchText: String){
+//
+//    }
+//}

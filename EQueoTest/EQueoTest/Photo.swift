@@ -21,7 +21,7 @@ class Photo: Codable {
         self.photoID = json["id"].stringValue
         self.photoDescription = json["alt_description"].stringValue
         self.photoURL = json["urls"]["thumb"].stringValue
-        self.author = json["name"].stringValue
+        self.author = json["user"]["name"].stringValue
         self.selectedPhoto = selectedPhoto ?? false
     }
 }
