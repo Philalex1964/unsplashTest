@@ -1,0 +1,6 @@
+framework module Pods_EQueoTest {
+  umbrella header "Pods-EQueoTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
