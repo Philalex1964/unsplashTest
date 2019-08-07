@@ -75,6 +75,10 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
 //
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let layout = collectionView?.collectionViewLayout as? PhotoCustomLayout {
+            layout.delegate = self
+        }
+        
         searchController.searchBar.delegate = self
         PhotoService.shared.getPhotos(searchText: nil)
         navigationItem.searchController = searchController
@@ -157,6 +161,17 @@ extension PhotoCollectionViewController: UISearchResultsUpdating {
     }
 }
 
+extension PhotoCollectionViewController: PhotoCustomLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+//        let photo: PhotoMO = photos[indexPath.row]
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell
+//        return (photoImage?.size.height)!
+ //       return photos[indexPath.item].image.size.height
+        return 
+
+    }
+}
 //extension PhotoCollectionViewController: UISearchBarDelegate {
 //    // MARK: - UISearchResultsUpdating Delegate
 //    func searchBar(_ searchBar: UISearchBar,

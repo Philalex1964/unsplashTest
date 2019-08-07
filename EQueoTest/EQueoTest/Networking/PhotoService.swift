@@ -31,7 +31,7 @@ class PhotoService {
 //            "h": 180,
             "auto": "format"
         ]
-        print(searchText)
+       
         Alamofire.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0FF702943FBA185EC9BA5BE2 /* Pods_EQueoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7418A57A0EC9D7EFCF8C70A4 /* Pods_EQueoTest.framework */; };
-		2C20795B22FB222E004854AB /* PhotoCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */; };
 		2C3BC45B22F4ABA400464512 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */; };
 		2CA0C30F22F5D49B003735A7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C30E22F5D49B003735A7 /* Photo.swift */; };
 		2CA0C31322F5D80A003735A7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C31222F5D80A003735A7 /* PhotoCell.swift */; };
@@ -19,16 +18,16 @@
 		2CC18F7522F33D3C00DB7AFC /* EQueoTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC18F7322F33D3C00DB7AFC /* EQueoTest.xcdatamodeld */; };
 		2CC18F7722F33D4D00DB7AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC18F7622F33D4D00DB7AFC /* Assets.xcassets */; };
 		2CC18F7A22F33D4D00DB7AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC18F7822F33D4D00DB7AFC /* LaunchScreen.storyboard */; };
+		2CD0B12022FB7E4300AE1A44 /* PhotoCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0B11F22FB7E4300AE1A44 /* PhotoCustomLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		060DD2C566C9CAA614224255 /* Pods-EQueoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EQueoTest.release.xcconfig"; path = "Target Support Files/Pods-EQueoTest/Pods-EQueoTest.release.xcconfig"; sourceTree = "<group>"; };
-		2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewLayout.swift; sourceTree = "<group>"; };
 		2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		2CA0C30E22F5D49B003735A7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2CA0C31222F5D80A003735A7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		2CA0C31422F6F855003735A7 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoService.swift; path = "New Group/PhotoService.swift"; sourceTree = "<group>"; };
-		2CA0C31622F70ADF003735A7 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiService.swift; path = "New Group/ApiService.swift"; sourceTree = "<group>"; };
+		2CA0C31422F6F855003735A7 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		2CA0C31622F70ADF003735A7 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		2CC18F6922F33D3C00DB7AFC /* EQueoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EQueoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC18F6C22F33D3C00DB7AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC18F7122F33D3C00DB7AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		2CC18F7622F33D4D00DB7AFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CC18F7922F33D4D00DB7AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CC18F7B22F33D4D00DB7AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD0B11F22FB7E4300AE1A44 /* PhotoCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCustomLayout.swift; sourceTree = "<group>"; };
 		3065308CD2019C98AFBEA28D /* Pods-EQueoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EQueoTest.debug.xcconfig"; path = "Target Support Files/Pods-EQueoTest/Pods-EQueoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7418A57A0EC9D7EFCF8C70A4 /* Pods_EQueoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EQueoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,20 +73,76 @@
 		2CC18F6B22F33D3C00DB7AFC /* EQueoTest */ = {
 			isa = PBXGroup;
 			children = (
-				2CA0C31222F5D80A003735A7 /* PhotoCell.swift */,
 				2CC18F6C22F33D3C00DB7AFC /* AppDelegate.swift */,
-				2CA0C30E22F5D49B003735A7 /* Photo.swift */,
-				2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */,
-				2C20795A22FB222D004854AB /* PhotoCollectionViewLayout.swift */,
-				2CC18F7022F33D3C00DB7AFC /* Main.storyboard */,
-				2CA0C31422F6F855003735A7 /* PhotoService.swift */,
-				2CA0C31622F70ADF003735A7 /* ApiService.swift */,
-				2CC18F7622F33D4D00DB7AFC /* Assets.xcassets */,
-				2CC18F7822F33D4D00DB7AFC /* LaunchScreen.storyboard */,
 				2CC18F7B22F33D4D00DB7AFC /* Info.plist */,
-				2CC18F7322F33D3C00DB7AFC /* EQueoTest.xcdatamodeld */,
+				2CD0B11E22FB7B5A00AE1A44 /* Networking */,
+				2CD0B11D22FB7B4700AE1A44 /* Supporting  */,
+				2CD0B11C22FB7B3700AE1A44 /* Assets */,
+				2CD0B11B22FB7AB800AE1A44 /* Model */,
+				2CD0B11A22FB7AA500AE1A44 /* Controller */,
+				2CD0B11922FB7A8A00AE1A44 /* View */,
+				2CD0B11822FB7A6000AE1A44 /* Layout */,
 			);
 			path = EQueoTest;
+			sourceTree = "<group>";
+		};
+		2CD0B11822FB7A6000AE1A44 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				2CD0B11F22FB7E4300AE1A44 /* PhotoCustomLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		2CD0B11922FB7A8A00AE1A44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CC18F7022F33D3C00DB7AFC /* Main.storyboard */,
+				2CC18F7822F33D4D00DB7AFC /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CD0B11A22FB7AA500AE1A44 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BC45A22F4ABA400464512 /* PhotoCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2CD0B11B22FB7AB800AE1A44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CA0C30E22F5D49B003735A7 /* Photo.swift */,
+				2CA0C31222F5D80A003735A7 /* PhotoCell.swift */,
+				2CC18F7322F33D3C00DB7AFC /* EQueoTest.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CD0B11C22FB7B3700AE1A44 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2CC18F7622F33D4D00DB7AFC /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2CD0B11D22FB7B4700AE1A44 /* Supporting  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting ";
+			sourceTree = "<group>";
+		};
+		2CD0B11E22FB7B5A00AE1A44 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2CA0C31622F70ADF003735A7 /* ApiService.swift */,
+				2CA0C31422F6F855003735A7 /* PhotoService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		77FD6543E95A83DBBAB2E41F /* Frameworks */ = {
@@ -222,11 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CA0C30F22F5D49B003735A7 /* Photo.swift in Sources */,
-				2C20795B22FB222E004854AB /* PhotoCollectionViewLayout.swift in Sources */,
 				2CA0C31322F5D80A003735A7 /* PhotoCell.swift in Sources */,
 				2CA0C31522F6F855003735A7 /* PhotoService.swift in Sources */,
 				2CC18F7522F33D3C00DB7AFC /* EQueoTest.xcdatamodeld in Sources */,
 				2C3BC45B22F4ABA400464512 /* PhotoCollectionViewController.swift in Sources */,
+				2CD0B12022FB7E4300AE1A44 /* PhotoCustomLayout.swift in Sources */,
 				2CA0C31722F70ADF003735A7 /* ApiService.swift in Sources */,
 				2CC18F6D22F33D3C00DB7AFC /* AppDelegate.swift in Sources */,
 			);
