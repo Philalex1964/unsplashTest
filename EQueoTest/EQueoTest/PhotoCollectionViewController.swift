@@ -19,6 +19,10 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
     public var photos: [PhotoMO] = []
     public var photoImage: UIImage?
     
+    var searchController = UISearchController(searchResultsController: nil)
+    //var searchBar = UISearchBar.self
+    //public var searchText: String = ""
+    
     lazy var fetchResultsController: NSFetchedResultsController<PhotoMO>? = {
         let fetchRequest: NSFetchRequest<PhotoMO> = PhotoMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "author", ascending: true)
@@ -33,34 +37,6 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         return fetchResultsController
     }()
     
-    
-    
-    var searchController = UISearchController(searchResultsController: nil)
-    public var searchText: String = ""
-    
-    public func searchBar(_ searchBar: UISearchBar,
-                   textDidChange searchText: String){
-        searchBar.delegate = self
-            }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        navigationItem.searchController = searchController
-        searchController.searchBar.setShowsCancelButton(true, animated: true)
-        searchController.searchBar.text = searchText
-        searchController.searchBar.placeholder = "Search"
-        //searchController.definesPresentationContext = true
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetchData()
-        searchController.searchBar.text = searchText
-        updateSearchResults(for: searchController)
-    }
- 
     // MARK: - NSFetchedResultsControllerDelegate
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchedObjects = self.fetchResultsController?.fetchedObjects {
@@ -68,6 +44,55 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         }
         photoCView.reloadData()
     }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: searchText)
+//        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
+//    }
+//
+//    @objc func search () {
+//
+//        PhotoService.shared.getPhotos(searchText: searchController.searchBar.text)
+//
+//    }
+
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchController.searchBar.text = searchText
+//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: searchText)
+//        self.perform(#selector(self.search), with: nil, afterDelay: 2.0)
+//    }
+//
+//    @objc func search () {
+//        PhotoService.shared.getPhotos(searchText: searchController.searchBar.text)
+//
+//    }
+    public func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String){
+//        searchBar.delegate = self
+        PhotoService.shared.getPhotos(searchText: searchText)
+        photoCView.reloadData()
+            }
+//
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchController.searchBar.delegate = self
+        PhotoService.shared.getPhotos(searchText: nil)
+        navigationItem.searchController = searchController
+        searchController.searchBar.setShowsCancelButton(true, animated: true)
+ //       searchController.searchBar.text = searchText
+        searchController.searchBar.placeholder = "Search"
+        self.definesPresentationContext = true
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchData()
+ //       searchController.searchBar.text = searchText
+        updateSearchResults(for: searchController)
+        //photoCView.reloadData()
+    }
+ 
+
     
     // MARK: UICollectionViewDataSource
 
@@ -126,6 +151,7 @@ extension PhotoCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         func searchBar(_ searchBar: UISearchBar,
                        textDidChange searchText: String){
+            
             
         }
     }
