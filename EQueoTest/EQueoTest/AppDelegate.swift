@@ -23,19 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-       
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-     
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-       
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -44,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
       
         let container = NSPersistentContainer(name: "EQueoTest")
@@ -73,6 +68,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

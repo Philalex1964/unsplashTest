@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 import CoreData
 import Alamofire
-import MagicalRecord
 
 class PhotoService {
     
@@ -22,7 +21,7 @@ class PhotoService {
         
         let params: Parameters = [
             "client_id": "df323d9b6f1542e39224aed966bd4baf6c24ec14248f09b403a7dea55dfac24d",
-            "query": searchText ?? "air",
+            "query": searchText ?? "sea",
             "page": 1,
             "per_page": 30,
             "auto": "format"

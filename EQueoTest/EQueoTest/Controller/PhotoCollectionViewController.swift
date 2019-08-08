@@ -19,6 +19,7 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
     public var photos: [PhotoMO] = []
     public var photoImage: UIImage?
     
+    // MARK: - NSFetchedResultsController
     lazy var fetchResultsController: NSFetchedResultsController<PhotoMO>? = {
         let fetchRequest: NSFetchRequest<PhotoMO> = PhotoMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "author", ascending: true)
@@ -33,7 +34,6 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         return fetchResultsController
     }()
     
-    // MARK: - NSFetchedResultsControllerDelegate
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchedObjects = self.fetchResultsController?.fetchedObjects {
             photos = fetchedObjects
@@ -41,17 +41,11 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         photoCollectionView.reloadData()
     }
 
-    // MARK: - Search
-    var searchController = UISearchController(searchResultsController: nil)
-    
-    public func searchBar(_ searchBar: UISearchBar,
-                   textDidChange searchText: String){
-        PhotoService.shared.getPhotos(searchText: searchText)
-        photoCollectionView.reloadData()
-            }
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.fetchData()
 
         searchController.searchBar.delegate = self
@@ -59,12 +53,22 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         searchController.searchBar.setShowsCancelButton(true, animated: true)
         searchController.searchBar.placeholder = "Search"
         self.definesPresentationContext = true
+        
         PhotoService.shared.getPhotos(searchText: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateSearchResults(for: searchController)
+    }
+    
+    // MARK: - SearchBar
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    public func searchBar(_ searchBar: UISearchBar,
+                          textDidChange searchText: String){
+        PhotoService.shared.getPhotos(searchText: searchText)
+        photoCollectionView.reloadData()
     }
     
     // MARK: UICollectionViewDataSource

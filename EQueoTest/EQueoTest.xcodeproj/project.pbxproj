@@ -12,7 +12,6 @@
 		2CA0C30F22F5D49B003735A7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C30E22F5D49B003735A7 /* Photo.swift */; };
 		2CA0C31322F5D80A003735A7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C31222F5D80A003735A7 /* PhotoCell.swift */; };
 		2CA0C31522F6F855003735A7 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C31422F6F855003735A7 /* PhotoService.swift */; };
-		2CA0C31722F70ADF003735A7 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0C31622F70ADF003735A7 /* ApiService.swift */; };
 		2CC18F6D22F33D3C00DB7AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC18F6C22F33D3C00DB7AFC /* AppDelegate.swift */; };
 		2CC18F7222F33D3C00DB7AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC18F7022F33D3C00DB7AFC /* Main.storyboard */; };
 		2CC18F7522F33D3C00DB7AFC /* EQueoTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC18F7322F33D3C00DB7AFC /* EQueoTest.xcdatamodeld */; };
@@ -26,7 +25,6 @@
 		2CA0C30E22F5D49B003735A7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2CA0C31222F5D80A003735A7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		2CA0C31422F6F855003735A7 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
-		2CA0C31622F70ADF003735A7 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		2CC18F6922F33D3C00DB7AFC /* EQueoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EQueoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC18F6C22F33D3C00DB7AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC18F7122F33D3C00DB7AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		2CD0B11E22FB7B5A00AE1A44 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				2CA0C31622F70ADF003735A7 /* ApiService.swift */,
 				2CA0C31422F6F855003735A7 /* PhotoService.swift */,
 			);
 			path = Networking;
@@ -263,7 +260,6 @@
 				2CA0C31522F6F855003735A7 /* PhotoService.swift in Sources */,
 				2CC18F7522F33D3C00DB7AFC /* EQueoTest.xcdatamodeld in Sources */,
 				2C3BC45B22F4ABA400464512 /* PhotoCollectionViewController.swift in Sources */,
-				2CA0C31722F70ADF003735A7 /* ApiService.swift in Sources */,
 				2CC18F6D22F33D3C00DB7AFC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
