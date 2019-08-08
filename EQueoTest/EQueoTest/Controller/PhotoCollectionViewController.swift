@@ -41,8 +41,6 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         photoCollectionView.reloadData()
     }
 
-   
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
