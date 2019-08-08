@@ -164,14 +164,23 @@ extension PhotoCollectionViewController: UISearchResultsUpdating {
 extension PhotoCollectionViewController: PhotoCustomLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-//        let photo: PhotoMO = photos[indexPath.row]
+        let photo: PhotoMO = photos[indexPath.row]
+        var numberOfColumns = 2
+        var contentWidth: CGFloat {
+            let collectionView = collectionView
+            let insets = collectionView.contentInset
+            return collectionView.bounds.width - (insets.left + insets.right)
+        }
+        let columnWidth = contentWidth / CGFloat(numberOfColumns)
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell
 //        return (photoImage?.size.height)!
  //       return photos[indexPath.item].image.size.height
-        return 
-
+        print("1")
+        return columnWidth/CGFloat(photos[indexPath.row].photoWidth/photos[indexPath.row].photoHeight)
+       // print(columnWidth/CGFloat(photos[indexPath.row].photoWidth/photos[indexPath.row].photoHeight))
     }
 }
+
 //extension PhotoCollectionViewController: UISearchBarDelegate {
 //    // MARK: - UISearchResultsUpdating Delegate
 //    func searchBar(_ searchBar: UISearchBar,
