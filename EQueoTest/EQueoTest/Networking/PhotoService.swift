@@ -17,7 +17,6 @@ class PhotoService {
     static let shared = PhotoService() 
     
     public func getPhotos(searchText: String?, completion: ((Swift.Result<[Photo], Error>) -> Void)? = nil) {
-        //let query = searchText
         let baseUrl = "https://api.unsplash.com"
         let path = "/search/photos"
         
@@ -26,9 +25,6 @@ class PhotoService {
             "query": searchText ?? "air",
             "page": 1,
             "per_page": 30,
-//            "fit": "clip",
-//            "w": 180,
-//            "h": 180,
             "auto": "format"
         ]
        
@@ -37,7 +33,6 @@ class PhotoService {
             case .success(let value):
                 let json = JSON(value)
                 let photos = json["results"].arrayValue.map { Photo($0) }
-                print(json)
                
                 let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
                 let context = appDelegate!.persistentContainer.viewContext
