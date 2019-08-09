@@ -27,17 +27,22 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         guard let appDelegate : AppDelegate = UIApplication.shared.delegate as? AppDelegate else {return nil}
         let context = appDelegate.persistentContainer.viewContext
         let fetchResultsController = NSFetchedResultsController(fetchRequest:fetchRequest,
-                                                                managedObjectContext: context,
-                                                                sectionNameKeyPath: nil,
-                                                                cacheName: nil)
+                                       managedObjectContext: context,
+                                       sectionNameKeyPath: nil,
+                                       cacheName: nil)
+        
         fetchResultsController.delegate = self
         return fetchResultsController
     }()
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let layout = collectionView?.collectionViewLayout as? PhotoCustomLayout {
+            layout.delegate = self
+        }
         if let fetchedObjects = self.fetchResultsController?.fetchedObjects {
             photos = fetchedObjects
         }
+        
         photoCollectionView.reloadData()
     }
 
@@ -45,7 +50,11 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         super.viewDidLoad()
         
         self.fetchData()
-
+        
+        if let layout = collectionView?.collectionViewLayout as? PhotoCustomLayout {
+            layout.delegate = self
+        }
+        
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         searchController.searchBar.setShowsCancelButton(true, animated: true)
@@ -53,16 +62,21 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
         self.definesPresentationContext = true
         
         PhotoService.shared.getPhotos(searchText: nil)
+        let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
+        print(urls[urls.count-1] as URL)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let layout = collectionView?.collectionViewLayout as? PhotoCustomLayout {
+            layout.delegate = self
+        }
         updateSearchResults(for: searchController)
     }
     
-    // MARK: - SearchBar
+    // Mark: - SearchBar
     var searchController = UISearchController(searchResultsController: nil)
-    
+
     public func searchBar(_ searchBar: UISearchBar,
                           textDidChange searchText: String){
         PhotoService.shared.getPhotos(searchText: searchText)
@@ -71,11 +85,12 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
     
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
             return photos.count
     }
 
@@ -91,7 +106,7 @@ class PhotoCollectionViewController: UICollectionViewController, NSFetchedResult
     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return false
     }
-    
+
     private func fetchData() {
         do {
             try self.fetchResultsController?.performFetch()
@@ -111,5 +126,25 @@ extension PhotoCollectionViewController: UISearchResultsUpdating {
         func searchBar(_ searchBar: UISearchBar,
                        textDidChange searchText: String){
         }
+    }
+}
+
+extension PhotoCollectionViewController: PhotoCustomLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+        let photo: PhotoMO = photos[indexPath.row]
+        var numberOfColumns = 2
+        var contentWidth: CGFloat {
+            let collectionView = collectionView
+            let insets = collectionView.contentInset
+            return collectionView.bounds.width - (insets.left + insets.right)
+        }
+        let columnWidth = contentWidth / CGFloat(numberOfColumns)
+        print(columnWidth)
+        let height = columnWidth/CGFloat(photos[indexPath.row].photoWidth/photos[indexPath.row].photoHeight)
+        print(height)
+        print(photos[indexPath.row].photoWidth)
+        print(photos[indexPath.row].photoHeight)
+        return height
     }
 }

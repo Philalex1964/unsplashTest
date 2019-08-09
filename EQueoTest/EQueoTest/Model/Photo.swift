@@ -16,13 +16,17 @@ class Photo: Codable {
     let photoURL: String
     let author: String
     var selectedPhoto: Bool?
+    let photoWidth: Double
+    let photoHeight: Double
     
     init(_ json: JSON) {
         self.photoID = json["id"].stringValue
         self.photoDescription = json["alt_description"].stringValue
-        self.photoURL = json["urls"]["thumb"].stringValue
+        self.photoURL = json["urls"]["small"].stringValue
         self.author = json["user"]["name"].stringValue
         self.selectedPhoto = selectedPhoto ?? false
+        self.photoWidth = json["width"].double ?? 0
+        self.photoHeight = json["height"].double ?? 0
     }
 }
 

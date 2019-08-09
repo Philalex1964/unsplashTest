@@ -16,6 +16,7 @@ class PhotoService {
     static let shared = PhotoService() 
     
     public func getPhotos(searchText: String?, completion: ((Swift.Result<[Photo], Error>) -> Void)? = nil) {
+        
         let baseUrl = "https://api.unsplash.com"
         let path = "/search/photos"
         
@@ -26,13 +27,12 @@ class PhotoService {
             "per_page": 30,
             "auto": "format"
         ]
-       
         Alamofire.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 let photos = json["results"].arrayValue.map { Photo($0) }
-               
+                print(json)
                 let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
                 let context = appDelegate!.persistentContainer.viewContext
                 
@@ -55,6 +55,8 @@ class PhotoService {
                     managedPhoto.author = plainPhoto.author
                     managedPhoto.photoURL = plainPhoto.photoURL
                     managedPhoto.photoID = plainPhoto.photoID
+                    managedPhoto.photoWidth = plainPhoto.photoWidth
+                    managedPhoto.photoHeight = plainPhoto.photoHeight
                     
                     let identifier = "\(plainPhoto.photoDescription)\(plainPhoto.author)"
                     if oldIdentifiers.contains(identifier) {
@@ -75,10 +77,9 @@ class PhotoService {
         let fetchRequest: NSFetchRequest<PhotoMO> = PhotoMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "photoDescription", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let fetchResultsController = NSFetchedResultsController(fetchRequest:fetchRequest,
-                                                                managedObjectContext: context,
-                                                                sectionNameKeyPath: nil,
-                                                                cacheName: nil)
+        let fetchResultsController = NSFetchedResultsController(fetchRequest:fetchRequest,                                               managedObjectContext: context,
+                                       sectionNameKeyPath: nil,
+                                       cacheName: nil)
         do {
             try fetchResultsController.performFetch()
         } catch {
