@@ -18,24 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let shared = UIApplication.shared.delegate as! AppDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        PhotoService.shared.getPhotos(searchText: "")
+        
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-       
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-     
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-       
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -44,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
       
         let container = NSPersistentContainer(name: "EQueoTest")
@@ -73,6 +68,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

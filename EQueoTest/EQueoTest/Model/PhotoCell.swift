@@ -17,9 +17,7 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var selectControl: UIView!
     
-    
     override func awakeFromNib() {
-        super.awakeFromNib()
-        
+        super.awakeFromNib()        
     }
 }

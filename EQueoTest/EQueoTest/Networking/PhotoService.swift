@@ -10,34 +10,28 @@ import Foundation
 import SwiftyJSON
 import CoreData
 import Alamofire
-import MagicalRecord
 
 class PhotoService {
     
     static let shared = PhotoService() 
     
     public func getPhotos(searchText: String?, completion: ((Swift.Result<[Photo], Error>) -> Void)? = nil) {
-        //let query = searchText
         let baseUrl = "https://api.unsplash.com"
         let path = "/search/photos"
         
         let params: Parameters = [
             "client_id": "df323d9b6f1542e39224aed966bd4baf6c24ec14248f09b403a7dea55dfac24d",
-            "query": searchText ?? "air",
+            "query": searchText ?? "sea",
             "page": 1,
             "per_page": 30,
-//            "fit": "clip",
-//            "w": 180,
-//            "h": 180,
             "auto": "format"
         ]
-        print(searchText)
+       
         Alamofire.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 let photos = json["results"].arrayValue.map { Photo($0) }
-                print(json)
                
                 let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
                 let context = appDelegate!.persistentContainer.viewContext
